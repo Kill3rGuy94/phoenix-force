@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phoenix Force</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        phoenix: {
+                            red: '#FF3B30',
+                            500: '#FF8C00',
+                            600: '#E67E22',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .dark .glass {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 min-h-screen flex flex-col transition-colors duration-300">
+
+    <!-- Navigation Bar -->
+    <nav class="sticky top-0 z-50 glass shadow-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigate('home')">
+                    <span class="text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-phoenix-500 to-phoenix-red">PHOENIX FORCE</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <button onclick="navigate('home')" class="text-gray-700 dark:text-gray-300 hover:text-phoenix-500 font-semibold transition">Home</button>
+                    <button onclick="navigate('streamers')" class="text-gray-700 dark:text-gray-300 hover:text-phoenix-500 font-semibold transition">Roster</button>
+                    <button onclick="navigate('discord')" class="text-gray-700 dark:text-gray-300 hover:text-phoenix-500 font-semibold transition">Community</button>
+                    <button onclick="navigate('join')" class="text-gray-700 dark:text-gray-300 hover:text-phoenix-500 font-semibold transition">Apply</button>
+                </div>
+                <!-- Theme Toggle Icon -->
+                <button id="themeToggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition">
+                    <svg class="w-6 h-6 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                    <svg class="w-6 h-6 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-6xl mx-auto w-full p-6">
+        <!-- Home Section -->
+        <section id="home" class="page-section text-center py-20">
+            <h2 class="text-5xl md:text-7xl font-extrabold mb-6">Rise From The Ashes.</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10">The premier esports and streaming organization. Watch our top talent dominate the leaderboards daily.</p>
+            <button onclick="navigate('streamers')" class="bg-gradient-to-r from-phoenix-500 to-phoenix-red text-white px-8 py-3 rounded-full font-bold hover:scale-105 transition transform">Meet The Team</button>
+        </section>
+
+        <!-- Streamers Section -->
+        <section id="streamers" class="page-section hidden py-10">
+            <h2 class="text-4xl font-bold mb-8 text-center">Our Roster</h2>
+            <div id="streamer-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+        </section>
+
+        <!-- Discord Section -->
+        <section id="discord" class="page-section hidden py-20 text-center">
+            <h2 class="text-5xl font-bold mb-6 text-indigo-500">Join The Community</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">Get exclusive updates, chat with the team, and find groups for your next match.</p>
+            <a href="#" class="inline-block bg-indigo-600 text-white px-8 py-3 rounded-full font-bold hover:bg-indigo-700 transition">Launch Discord</a>
+        </section>
+
+        <!-- Join Us Section -->
+        <section id="join" class="page-section hidden py-20 text-center">
+            <h2 class="text-5xl font-bold mb-6 text-phoenix-500">Become A Phoenix</h2>
+            <p class="text-xl text-gray-600 dark:text-gray-400 mb-10 max-w-2xl mx-auto">We are currently looking for dedicated streamers and competitive players to expand our roster. Do you have what it takes?</p>
+            <form class="max-w-md mx-auto glass p-8 rounded-2xl flex flex-col gap-4 text-left">
+                <input type="text" placeholder="Your Name / Gamertag" class="w-full p-3 rounded bg-white/5 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-phoenix-500">
+                <input type="url" placeholder="Twitch / YouTube Link" class="w-full p-3 rounded bg-white/5 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-phoenix-500">
+                <textarea placeholder="Why should we recruit you?" rows="4" class="w-full p-3 rounded bg-white/5 border border-gray-300 dark:border-gray-700 focus:outline-none focus:border-phoenix-500"></textarea>
+                <button type="submit" class="bg-phoenix-500 text-white font-bold py-3 rounded hover:bg-phoenix-600 transition">Submit Application</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="glass text-center py-6 mt-auto">
+        <p class="text-gray-500 text-sm">© 2026 Phoenix Force. All rights reserved.</p>
+    </footer>
+
+    <!-- Configuration & Logic -->
+    <script>
+        // --- STREAMER CONFIGURATION --- //
+        const TEAM_STREAMERS = [
+            { 
+                name: "Kill3rGuy94", 
+                description: "Καλωσήρθατε στο καναλι μου. Ειμαι ο Δημητρης και ειμαι noobas. Ελπιζω να περασετε καλα με την παρεα μας και να γελασουμε ολοι μαζι!!", 
+                logo: "image_91ffa2.png", 
+                link: "https://twitch.tv/kill3rguy94" 
+            },
+            { 
+                name: "YioGki", 
+                description: "Welcome,welcome.. to my channel take a sit and enjoy~!Παίζω απ όλα τα παιχνίδια , κύριο game είναι το League of legendsΜην περιμένετε σοβαρά gameplays, είμαστε εδώ για να περάσουμε καλά!!", 
+                logo: "image_91fcd8.png", 
+                link: "https://twitch.tv/yiogki" 
+            },
+            { 
+                name: "catgamer_tv", 
+                description: "Γεια σε όλους είμαι ο Σπύρος και μου αρέσει το gaming.Εχω ζήσει το gaming από της εποχές του Atari ακόμα όταν ήμουν παιδί,μετά στην εφηβεία playstation 1,2 xbox,xbox360..Μέχρι που φτάσαμε στο σήμερα,να παίζω ακόμα games και να περνάω καλά με όλους εσάς που μπαίνετε στη παρέα μας!!", 
+                logo: "image_91fc9f.png", 
+                link: "https://twitch.tv/catgamer_tv" 
+            },
+            { 
+                name: "CreepyPuppet_Tv", 
+                description: "Καλά plays μόνο κατά τύχη!", 
+                logo: "image_91fc7c.png", 
+                link: "https://twitch.tv/creepypuppet_tv" 
+            },
+            { 
+                name: "FenChris", 
+                description: "Just having fun playing games ⚡ Currently maining AION2", 
+                logo: "image_91fc45.png", 
+                link: "https://twitch.tv/fenchris" 
+            },
+            { 
+                name: "Ghost_R4in", 
+                description: "Hello everyone! My name is Rain I'm 22 years old and I like to play video games alot! I've been playing games since I was young and I love motorcycles and cars too!", 
+                logo: "image_91fc20.png", 
+                link: "https://twitch.tv/ghost_r4in" 
+            },
+            { 
+                name: "demon_gekkouga", 
+                description: "Εεε γεια ειμαι ο Δημητρης ή αλλιως Κωστης, παιζω games μαλλον εχω χιουμορ μαλλον οχι δεν ξερω μπες και απολαυσε μαλλον :()", 
+                logo: "image_91fbe9.png", 
+                link: "https://twitch.tv/demon_gekkouga" 
+            },
+            { 
+                name: "YipYipMan_", 
+                description: "Hello Hello !! Είμαι ο Yip , κύριο game μου είναι το League of Legends και σας περιμένω να διασκεδάσουμε μαζί με υπέροχα και άθλια Plays. business inquiries: xravian10@gmail.com", 
+                logo: "image_91f93a.png", 
+                link: "https://twitch.tv/yipyipman_" 
+            }
+        ];
+
+        // --- APP LOGIC --- //
+        // Render Streamers
+        const grid = document.getElementById('streamer-grid');
+        TEAM_STREAMERS.forEach(s => {
+            grid.innerHTML += `
+                <div class="glass p-6 rounded-2xl flex flex-col items-center text-center transform hover:-translate-y-2 transition duration-300">
+                    <img src="${s.logo}" alt="${s.name} Logo" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=${s.name}&background=FF8C00&color=fff&size=128';" class="w-24 h-24 rounded-full border-4 border-phoenix-500 mb-4 object-cover bg-gray-800 shadow-lg">
+                    <h3 class="text-2xl font-bold">${s.name}</h3>
+                    <p class="text-gray-700 dark:text-gray-300 text-sm mt-3 mb-5 italic flex-grow">"${s.description}"</p>
+                    <a href="${s.link}" target="_blank" class="mt-auto border border-phoenix-500 text-phoenix-500 px-6 py-2 rounded-full hover:bg-phoenix-500 hover:text-white transition w-full font-semibold">Watch Live</a>
+                </div>
+            `;
+        });
+
+        // Router
+        function navigate(pageId) {
+            document.querySelectorAll('.page-section').forEach(sec => sec.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+            window.scrollTo(0,0);
+        }
+
+        // Theme Toggle
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+        });
+    </script>
+</body>
+</html>
