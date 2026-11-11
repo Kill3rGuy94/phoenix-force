@@ -158,22 +158,22 @@
     <script>
         const TEAM_STREAMERS = [
             { name: "Kill3rGuy94", role: "👑 LEADER & FOUNDER", description: "Καλωσήρθατε στο καναλι μου. Ειμαι ο Δημητρης και ειμαι noobas. Ελπιζω να περασετε καλα με την παρεα μας!", logo: "logos/Kill3rGuy94.png", link: "https://twitch.tv/kill3rguy94" },
-            { name: "YipYipMan_", role: "⭐ Streamers Manager", description: "Hello Hello !! Είμαι ο Yip , κύριο game μου είναι το League of Legends.", logo: "logos/YipYipMan_.png", link: "https://twitch.tv/yipyipman_" }
-            { name: "catgamer_tv", role: "CREATOR", description: "Γεια σε όλους είμαι ο Σπύρος και μου αρέσει το gaming από εποχές Atari και Playstation!", logo: "logos/image_91fc9f.png", link: "https://twitch.tv/catgamer_tv" },
-            { name: "CreepyPuppet_Tv", role: "CREATOR", description: "Καλά plays μόνο κατά τύχη!", logo: "logos/image_91fc7c.png", link: "https://twitch.tv/creepypuppet_tv" },
-            { name: "FenChris", role: "CREATOR", description: "Just having fun playing games ⚡ Currently maining AION2", logo: "logos/Fenchris.png", link: "https://twitch.tv/fenchris" },
-            { name: "Ghost_R4in", role: "CREATOR", description: "Hello everyone! My name is Rain I'm 22 years old and I love to play video games alot!", logo: "logos/Ghost.png", link: "https://twitch.tv/ghost_r4in" },
-            { name: "demon_gekkouga", role: "CREATOR", description: "Εεε γεια ειμαι ο Δημητρης ή αλλιως Κωστης, παιζω games μαλλον εχω χιουμορ!", logo: "logos/Gekkouga.png", link: "https://twitch.tv/demon_gekkouga" },
-            { name: "YioGki", role: "CREATOR", description: "Welcome,welcome.. to my channel take a sit and enjoy~! Κύριο game είναι το League of legends.", logo: "logos/Yiogki.png", link: "https://twitch.tv/yiogki" },
+            { name: "YioGki", role: "🔥 ELITE CREATOR", description: "Welcome,welcome.. to my channel take a sit and enjoy~! Κύριο game είναι το League of legends.", logo: "logos/Yiogki.png", link: "https://twitch.tv/yiogki" },
+            { name: "catgamer_tv", role: "🎮 VETERAN CREATOR", description: "Γεια σε όλους είμαι ο Σπύρος και μου αρέσει το gaming από εποχές Atari και Playstation!", logo: "logos/image_91fc9f.png", link: "https://twitch.tv/catgamer_tv" },
+            { name: "CreepyPuppet_Tv", role: "⚡ STREAMER", description: "Καλά plays μόνο κατά τύχη!", logo: "logos/image_91fc7c.png", link: "https://twitch.tv/creepypuppet_tv" },
+            { name: "FenChris", role: "⚡ STREAMER", description: "Just having fun playing games ⚡ Currently maining AION2", logo: "logos/Fenchris.png", link: "https://twitch.tv/fenchris" },
+            { name: "Ghost_R4in", role: "⚡ STREAMER", description: "Hello everyone! My name is Rain I'm 22 years old and I love to play video games alot!", logo: "logos/Ghost.png", link: "https://twitch.tv/ghost_r4in" },
+            { name: "demon_gekkouga", role: "⚡ STREAMER", description: "Εεε γεια ειμαι ο Δημητρης ή αλλιως Κωστης, παιζω games μαλλον εχω χιουμορ!", logo: "logos/Gekkouga.png", link: "https://twitch.tv/demon_gekkouga" },
+            { name: "YipYipMan_", role: "⭐ STREAMERS MANAGER", description: "Hello Hello !! Είμαι ο Yip , κύριο game μου είναι το League of Legends.", logo: "logos/YipYipMan_.png", link: "https://twitch.tv/yipyipman_" }
         ];
 
         const grid = document.getElementById('streamer-grid');
         TEAM_STREAMERS.forEach(s => {
-            // Check if this streamer is a special role (Leader or Manager) to apply the badge style
-            const isSpecial = s.role.includes('LEADER') || s.role.includes('MANAGER');
-            const badgeClass = isSpecial 
+            // Check if this streamer has a top leadership role to give them the glowing fire badge
+            const isTopRole = s.role.includes('LEADER') || s.role.includes('MANAGER');
+            const badgeClass = isTopRole 
                 ? "bg-gradient-to-r from-phoenix-500 to-phoenix-red text-white text-[10px] font-black px-3 py-1 rounded-full shadow-[0_0_15px_rgba(255,140,0,0.6)] tracking-wider mb-3 inline-block uppercase border border-phoenix-500" 
-                : "text-phoenix-500 text-[10px] font-bold tracking-widest mb-3 uppercase opacity-80";
+                : "glass text-phoenix-500 text-[10px] font-bold px-2.5 py-1 rounded-md tracking-widest mb-3 inline-block uppercase border border-phoenix-500/30";
 
             grid.innerHTML += `
                 <div class="glass p-6 rounded-2xl flex flex-col items-center text-center transform hover:-translate-y-2 transition duration-300 relative group">
