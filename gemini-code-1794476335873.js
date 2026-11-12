@@ -1,7 +1,7 @@
 // config.js - Κρυφό αρχείο ρυθμίσεων και δεδομένων ομάδας
 const PHOENIX_CONFIG = {
     formspreeEndpoint: "https://formspree.io/f/xkjrwvgr",
-    twitchClientId: "YOUR_TWITCH_CLIENT_ID_HERE", // Γενικό Client ID αν χρειαστεί
+    twitchClientId: "x396p96cqee8dz5nfusmazlc7k0yfi", // Γενικό Client ID αν χρειαστεί
     
     // Ατομικά Client IDs ανά streamer (μπορείς να βάλεις τα δικά τους κλειδιά εδώ)
     twitchClientIds: {
