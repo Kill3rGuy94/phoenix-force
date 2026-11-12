@@ -7,5 +7,5 @@ const PHOENIX_TWITCH_CONFIG = {
     "FenChris": "fenchris",
     "Ghost_R4in": "ghost_r4in",
     "demon_gekkouga": "demon_gekkouga",
-    "YipYipMan_": "yipyipman_"
+    "YipYipMan_": "f19wk4maon6tu919dqd7ma7hnbykd7"
 };
