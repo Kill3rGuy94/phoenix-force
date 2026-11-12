@@ -6,6 +6,6 @@ const PHOENIX_TWITCH_CONFIG = {
     "CreepyPuppet_Tv": "creepypuppet_tv",
     "FenChris": "fenchris",
     "Ghost_R4in": "ghost_r4in",
-    "demon_gekkouga": "demon_gekkouga",
+    "demon_gekkouga": "71j3xlbcp3g2wyps8pa2h9038kg9ns",
     "YipYipMan_": "f19wk4maon6tu919dqd7ma7hnbykd7"
 };
