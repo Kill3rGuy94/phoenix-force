@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-JPDLFX36S1');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phoenix Force | Rise With Phoenix</title>
@@ -218,7 +228,7 @@
                         <div class="md:col-span-5 flex justify-center">
                             <a href="https://www.geekaki.gr/en" target="_blank" rel="noopener noreferrer" class="w-full max-w-[260px] aspect-square rounded-2xl bg-black/60 border-2 border-phoenix-500/40 group-hover:border-phoenix-500 p-6 flex flex-col items-center justify-center shadow-2xl transform group-hover:scale-105 transition duration-300 relative overflow-hidden">
                                 <img src="logos/Geekaki.png" alt="Geekaki Logo" class="w-44 h-44 object-contain" onerror="this.style.display='none'; document.getElementById('geekakiFallback').classList.remove('hidden');">
-                                <!-- Crisp Fallback if logos/geekaki.png is not uploaded yet -->
+                                <!-- Crisp Fallback if logos/Geekaki.png is not uploaded yet -->
                                 <div id="geekakiFallback" class="hidden flex flex-col items-center text-center">
                                     <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-phoenix-500 to-phoenix-red flex items-center justify-center text-4xl font-black text-white shadow-lg mb-3">
                                         G
@@ -245,7 +255,7 @@
 
                             <div class="flex flex-wrap justify-center md:justify-start gap-2 pt-1">
                                 <span class="text-[11px] font-semibold bg-black/40 border border-gray-700 text-gray-300 px-3 py-1 rounded-full">👕 Geek Apparel</span>
-                                <span class="text-[11px] font-semibold bg-black/40 border border-gray-700 text-gray-300 px-3 py-1 rounded-full"> 🎨 Handmade Creations</span>
+                                <span class="text-[11px] font-semibold bg-black/40 border border-gray-700 text-gray-300 px-3 py-1 rounded-full">🎨 Handmade Creations</span>
                                 <span class="text-[11px] font-semibold bg-black/40 border border-gray-700 text-gray-300 px-3 py-1 rounded-full">🎁 Unique Gifts</span>
                             </div>
 
@@ -301,7 +311,7 @@
 
         <!-- Apply / Join Section -->
         <section id="join" class="page-section hidden py-16 text-center">
-            <h2 class="text-4xl font-black mb-3 text-phoenix-500">BECOME A PHENIX</h2>
+            <h2 class="text-4xl font-black mb-3 text-phoenix-500">BECOME A PHOENIX</h2>
             <p class="text-gray-400 mb-10 max-w-xl mx-auto">We are currently looking for dedicated streamers and competitive players to expand our roster.</p>
             <form id="applyForm" action="https://formspree.io/f/xgakwerk" class="max-w-md mx-auto glass p-8 rounded-2xl flex flex-col gap-4 text-left border border-phoenix-500/20" method="POST">
                 <input type="text" name="gamertag" placeholder="Your Name / Gamertag" required class="w-full p-3.5 rounded bg-black/40 border border-gray-700 focus:outline-none focus:border-phoenix-500 text-white">
@@ -446,10 +456,17 @@
             setInterval(checkLiveStatus, 60000);
         });
 
-        // Navigation Router + Active Tab Highlight
+        // Navigation Router + Active Tab Highlight + GA4 Tab Tracking
         function navigate(pageId) {
             document.querySelectorAll('.page-section').forEach(sec => sec.classList.add('hidden'));
             document.getElementById(pageId).classList.remove('hidden');
+
+            if (typeof gtag === 'function') {
+                gtag('event', 'page_view', {
+                    page_title: 'Phoenix Force - ' + pageId.toUpperCase(),
+                    page_path: '/' + pageId
+                });
+            }
 
             document.querySelectorAll('.nav-link').forEach(btn => {
                 if (btn.dataset.page === pageId) {
