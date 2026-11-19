@@ -66,10 +66,14 @@
 
                 <!-- Desktop Nav Links -->
                 <div class="hidden md:flex space-x-8 items-center text-sm font-medium">
-                    <button onclick="navigate('home')" class="text-white hover:text-phoenix-500 transition">Home</button>
-                    <button onclick="navigate('about')" class="text-gray-400 hover:text-phoenix-500 transition">About Us</button>
-                    <button onclick="navigate('streamers')" class="text-gray-400 hover:text-phoenix-500 transition">Creators</button>
-                    <button onclick="navigate('discord')" class="text-gray-400 hover:text-phoenix-500 transition">Community</button>
+                    <button onclick="navigate('home')" class="nav-link text-white hover:text-phoenix-500 transition" data-page="home">Home</button>
+                    <button onclick="navigate('about')" class="nav-link text-gray-400 hover:text-phoenix-500 transition" data-page="about">About Us</button>
+                    <button onclick="navigate('streamers')" class="nav-link text-gray-400 hover:text-phoenix-500 transition" data-page="streamers">Creators</button>
+                    <button onclick="navigate('partners')" class="nav-link text-gray-400 hover:text-phoenix-500 transition flex items-center gap-1.5" data-page="partners">
+                        <span>Partners</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-phoenix-500"></span>
+                    </button>
+                    <button onclick="navigate('discord')" class="nav-link text-gray-400 hover:text-phoenix-500 transition" data-page="discord">Community</button>
                 </div>
 
                 <!-- Right Action, Theme Toggle & Mobile Hamburger -->
@@ -99,6 +103,7 @@
             <button onclick="navigate('home'); toggleMobileMenu();" class="text-left text-white font-semibold py-1 hover:text-phoenix-500">Home</button>
             <button onclick="navigate('about'); toggleMobileMenu();" class="text-left text-gray-300 font-semibold py-1 hover:text-phoenix-500">About Us</button>
             <button onclick="navigate('streamers'); toggleMobileMenu();" class="text-left text-gray-300 font-semibold py-1 hover:text-phoenix-500">Creators</button>
+            <button onclick="navigate('partners'); toggleMobileMenu();" class="text-left text-phoenix-500 font-semibold py-1 hover:text-phoenix-red">Partners ★</button>
             <button onclick="navigate('discord'); toggleMobileMenu();" class="text-left text-gray-300 font-semibold py-1 hover:text-phoenix-500">Community</button>
             <button onclick="navigate('join'); toggleMobileMenu();" class="text-left text-phoenix-red font-semibold py-1">Join PHX ↗</button>
         </div>
@@ -123,8 +128,8 @@
                     <button onclick="navigate('streamers')" class="bg-phoenix-red hover:bg-phoenix-500 text-white px-8 py-3.5 rounded font-bold transition shadow-[0_0_20px_rgba(255,140,0,0.6)]">
                         Meet the Team ↗
                     </button>
-                    <button onclick="navigate('about')" class="glass hover:bg-phoenix-500/20 hover:border-phoenix-500 text-white px-8 py-3.5 rounded font-bold border border-gray-700 transition">
-                        About Us ↗
+                    <button onclick="navigate('partners')" class="glass hover:bg-phoenix-500/20 hover:border-phoenix-500 text-white px-8 py-3.5 rounded font-bold border border-gray-700 transition">
+                        Our Partners ↗
                     </button>
                 </div>
             </div>
@@ -191,6 +196,83 @@
             <div id="streamer-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
         </section>
 
+        <!-- Partners Section -->
+        <section id="partners" class="page-section hidden py-12">
+            <div class="text-center space-y-3 mb-12">
+                <span class="text-phoenix-500 text-xs font-bold tracking-widest uppercase bg-phoenix-500/10 px-3 py-1 rounded border border-phoenix-500/30">OFFICIAL COLLABORATIONS</span>
+                <h2 class="text-4xl sm:text-5xl font-black text-white tracking-wide">OUR PARTNERS</h2>
+                <p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
+                    Στηρίξτε τους επίσημους συνεργάτες της <span class="text-white font-semibold">Phoenix Force</span> και ανακαλύψτε μοναδικά geek & gaming προϊόντα.
+                </p>
+            </div>
+
+            <!-- Featured Partner Card: Geekaki -->
+            <div class="max-w-4xl mx-auto">
+                <div class="glass rounded-3xl p-8 sm:p-10 border border-phoenix-500/40 relative overflow-hidden shadow-[0_0_45px_rgba(255,140,0,0.15)] group hover:border-phoenix-500 transition duration-300">
+                    <!-- Ambient Glow -->
+                    <div class="absolute -top-24 -right-24 w-72 h-72 bg-phoenix-500/20 rounded-full blur-3xl pointer-events-none group-hover:bg-phoenix-500/30 transition"></div>
+                    <div class="absolute -bottom-24 -left-24 w-72 h-72 bg-phoenix-red/15 rounded-full blur-3xl pointer-events-none"></div>
+
+                    <div class="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                        <!-- Partner Logo Container -->
+                        <div class="md:col-span-5 flex justify-center">
+                            <a href="https://www.geekaki.gr/en" target="_blank" rel="noopener noreferrer" class="w-full max-w-[260px] aspect-square rounded-2xl bg-black/60 border-2 border-phoenix-500/40 group-hover:border-phoenix-500 p-6 flex flex-col items-center justify-center shadow-2xl transform group-hover:scale-105 transition duration-300 relative overflow-hidden">
+                                <img src="logos/geekaki.png" alt="Geekaki Logo" class="w-44 h-44 object-contain" onerror="this.style.display='none'; document.getElementById('geekakiFallback').classList.remove('hidden');">
+                                <!-- Crisp Fallback if logos/geekaki.png is not uploaded yet -->
+                                <div id="geekakiFallback" class="hidden flex flex-col items-center text-center">
+                                    <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-phoenix-500 to-phoenix-red flex items-center justify-center text-4xl font-black text-white shadow-lg mb-3">
+                                        G
+                                    </div>
+                                    <span class="text-2xl font-black tracking-wider text-white">GEEKAKI<span class="text-phoenix-500">.GR</span></span>
+                                    <span class="text-[10px] uppercase tracking-widest text-gray-400 mt-1">GEEK & GAMING STORE</span>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Partner Info & CTA -->
+                        <div class="md:col-span-7 text-center md:text-left space-y-4">
+                            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-phoenix-500/20 to-phoenix-red/20 border border-phoenix-500/50 text-phoenix-500 text-xs font-black tracking-widest uppercase">
+                                <span>★</span> OFFICIAL MERCH & GEEK PARTNER
+                            </div>
+
+                            <h3 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+                                GEEKAKI<span class="text-phoenix-500">.GR</span>
+                            </h3>
+
+                            <p class="text-gray-300 text-sm sm:text-base leading-relaxed">
+                                Το απόλυτο geek & gaming κατάστημα! Ανακάλυψε συλλεκτικές φιγούρες, gaming accessories, apparel, δώρα και μοναδικά items εμπνευσμένα από τα αγαπημένα σου games, anime και pop culture.
+                            </p>
+
+                            <div class="flex flex-wrap justify-center md:justify-start gap-2 pt-1">
+                                <span class="text-[11px] font-semibold bg-black/40 border border-gray-700 text-gray-300 px-3 py-1 rounded-full">🎮 Gaming Gear</span>
+                                <span class="text-[11px] font-semibold bg-black/40 border border-gray-700 text-gray-300 px-3 py-1 rounded-full"> figures & Collectibles</span>
+                                <span class="text-[11px] font-semibold bg-black/40 border border-gray-700 text-gray-300 px-3 py-1 rounded-full">👕 Geek Apparel</span>
+                            </div>
+
+                            <div class="pt-4 flex flex-col sm:flex-row items-center gap-4">
+                                <a href="https://www.geekaki.gr/en" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-phoenix-500 to-phoenix-red hover:opacity-95 text-white px-8 py-4 rounded-xl font-black tracking-wide text-sm shadow-[0_0_25px_rgba(255,140,0,0.5)] transition transform hover:-translate-y-0.5">
+                                    <span>🛒 Visit Geekaki Store</span>
+                                    <span>↗</span>
+                                </a>
+                                <span class="text-xs text-gray-400 font-mono">www.geekaki.gr/en</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Become a Partner Callout -->
+                <div class="mt-10 glass p-6 rounded-2xl border border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+                    <div>
+                        <h4 class="text-white font-bold text-base">Θέλεις να συνεργαστείς με την Phoenix Force;</h4>
+                        <p class="text-gray-400 text-xs">Επικοινώνησε μαζί μας στο Discord ή στείλε μας μήνυμα για sponsorships & collaborations.</p>
+                    </div>
+                    <button onclick="navigate('discord')" class="shrink-0 border border-phoenix-500/60 text-phoenix-500 hover:bg-phoenix-500 hover:text-white px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition">
+                        Contact Team ↗
+                    </button>
+                </div>
+            </div>
+        </section>
+
         <!-- Community / Socials Section -->
         <section id="discord" class="page-section hidden py-16 text-center">
             <div class="glass p-10 md:p-14 rounded-2xl max-w-3xl mx-auto border border-phoenix-500/30 relative overflow-hidden shadow-2xl">
@@ -219,7 +301,7 @@
 
         <!-- Apply / Join Section -->
         <section id="join" class="page-section hidden py-16 text-center">
-            <h2 class="text-4xl font-black mb-3 text-phoenix-500">BECOME A PHOENIX</h2>
+            <h2 class="text-4xl font-black mb-3 text-phoenix-500">BECOME A PHENIX</h2>
             <p class="text-gray-400 mb-10 max-w-xl mx-auto">We are currently looking for dedicated streamers and competitive players to expand our roster.</p>
             <form id="applyForm" action="https://formspree.io/f/xgakwerk" class="max-w-md mx-auto glass p-8 rounded-2xl flex flex-col gap-4 text-left border border-phoenix-500/20" method="POST">
                 <input type="text" name="gamertag" placeholder="Your Name / Gamertag" required class="w-full p-3.5 rounded bg-black/40 border border-gray-700 focus:outline-none focus:border-phoenix-500 text-white">
@@ -285,7 +367,6 @@
             `;
         });
 
-        // Ενημερώνει οπτικά την κάρτα (Πράσινο LIVE ή Γκρι OFFLINE)
         function updateStreamerBadge(username, isLive) {
             const card = document.querySelector(`[data-streamer="${username.toLowerCase()}"]`);
             if (!card) return;
@@ -313,7 +394,6 @@
             }
         }
 
-        // Αυτόματος έλεγχος χωρίς να χρειάζεται OAuth Token που λήγει
         async function checkLiveFallback(usernames) {
             await Promise.all(usernames.map(async (username) => {
                 try {
@@ -327,7 +407,6 @@
             }));
         }
 
-        // Κύρια συνάρτηση ελέγχου Live Status
         async function checkLiveStatus() {
             const usernames = TEAM_STREAMERS.map(s => {
                 return (typeof PHOENIX_CONFIG !== 'undefined' && PHOENIX_CONFIG.twitchUsernames && PHOENIX_CONFIG.twitchUsernames[s.name])
@@ -338,7 +417,6 @@
             const clientId = (typeof PHOENIX_CONFIG !== 'undefined') ? PHOENIX_CONFIG.twitchClientId : "";
             const accessToken = (typeof PHOENIX_CONFIG !== 'undefined') ? PHOENIX_CONFIG.twitchAccessToken : "";
 
-            // Αν υπάρχει έγκυρο Twitch OAuth Token, δοκιμάζει πρώτα το επίσημο Helix API
             if (clientId && accessToken) {
                 try {
                     const queryParams = usernames.map(u => `user_login=${u}`).join('&');
@@ -360,20 +438,30 @@
                 }
             }
 
-            // Αυτόματος έλεγχος live status
             await checkLiveFallback(usernames);
         }
 
         window.addEventListener('DOMContentLoaded', () => {
             checkLiveStatus();
-            setInterval(checkLiveStatus, 60000); // Έλεγχος κάθε 1 λεπτό
+            setInterval(checkLiveStatus, 60000);
         });
 
-        // Navigation Router
+        // Navigation Router + Active Tab Highlight
         function navigate(pageId) {
             document.querySelectorAll('.page-section').forEach(sec => sec.classList.add('hidden'));
             document.getElementById(pageId).classList.remove('hidden');
-            window.scrollTo(0,0);
+
+            document.querySelectorAll('.nav-link').forEach(btn => {
+                if (btn.dataset.page === pageId) {
+                    btn.classList.remove('text-gray-400');
+                    btn.classList.add('text-white', 'font-bold');
+                } else {
+                    btn.classList.remove('text-white', 'font-bold');
+                    btn.classList.add('text-gray-400');
+                }
+            });
+
+            window.scrollTo(0, 0);
         }
 
         // Mobile Menu Toggle
