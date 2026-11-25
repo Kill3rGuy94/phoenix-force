@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="el" class="dark">
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JPDLFX36S1"></script>
@@ -88,36 +88,36 @@
                     </div>
                 </div>
 
-                <!-- Desktop Nav Links -->
+                <!-- Desktop Nav Links (Default Greek) -->
                 <div class="hidden md:flex space-x-8 items-center text-sm font-medium">
-                    <button onclick="navigate('home')" class="nav-link text-white hover:text-phoenix-500 transition" data-page="home">Home</button>
-                    <button onclick="navigate('about')" class="nav-link text-gray-400 hover:text-phoenix-500 transition" data-page="about">About Us</button>
+                    <button onclick="navigate('home')" class="nav-link text-white hover:text-phoenix-500 transition" data-page="home">Αρχική</button>
+                    <button onclick="navigate('about')" class="nav-link text-gray-400 hover:text-phoenix-500 transition" data-page="about">Σχετικά</button>
                     <button onclick="navigate('streamers')" class="nav-link text-gray-400 hover:text-phoenix-500 transition" data-page="streamers">Creators</button>
                     <button onclick="navigate('partners')" class="nav-link text-gray-400 hover:text-phoenix-500 transition flex items-center gap-1.5" data-page="partners">
-                        <span>Partners</span>
+                        <span>Συνεργάτες</span>
                         <span class="w-1.5 h-1.5 rounded-full bg-phoenix-500"></span>
                     </button>
-                    <button onclick="navigate('discord')" class="nav-link text-gray-400 hover:text-phoenix-500 transition" data-page="discord">Community</button>
+                    <button onclick="navigate('discord')" class="nav-link text-gray-400 hover:text-phoenix-500 transition" data-page="discord">Κοινότητα</button>
                 </div>
 
                 <!-- Right Action, Theme Toggle, Language Switcher & Mobile Hamburger -->
                 <div class="flex items-center space-x-2 sm:space-x-3">
                     <button onclick="navigate('join')" class="hidden sm:inline-block bg-phoenix-red hover:bg-phoenix-500 text-white px-5 py-2.5 rounded text-sm font-bold tracking-wide transition shadow-[0_0_15px_rgba(255,140,0,0.6)]">
-                        Join PHX ↗
+                        Γίνε PHX ↗
                     </button>
                     
                     <!-- Theme Toggle Button -->
-                    <button id="themeToggle" title="Toggle Theme" class="p-2 rounded-full hover:bg-gray-800 dark:hover:bg-gray-800 transition text-gray-400 border border-gray-700/50">
+                    <button id="themeToggle" title="Αλλαγή Θέματος" class="p-2 rounded-full hover:bg-gray-800 dark:hover:bg-gray-800 transition text-gray-400 border border-gray-700/50">
                         <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                         <svg class="w-5 h-5 hidden dark:block text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                     </button>
 
-                    <!-- Language Switcher Button (GR / EN) -->
+                    <!-- Language Switcher Button (EN / GR) -->
                     <button id="langToggle" onclick="toggleLanguage()" title="Translate Page (EN / GR)" class="notranslate px-2.5 py-2 rounded-full hover:bg-gray-800 transition text-gray-300 border border-gray-700/50 flex items-center gap-1.5 text-xs font-bold tracking-wider">
                         <svg class="w-4 h-4 text-phoenix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
                         </svg>
-                        <span id="langLabel">GR</span>
+                        <span id="langLabel">EN</span>
                     </button>
 
                     <!-- Hidden Google Translate Container -->
@@ -133,38 +133,38 @@
             </div>
         </div>
 
-        <!-- Mobile Dropdown Menu -->
+        <!-- Mobile Dropdown Menu (Default Greek) -->
         <div id="mobileMenu" class="hidden md:hidden glass border-t border-gray-800 px-4 py-4 flex flex-col space-y-3">
-            <button onclick="navigate('home'); toggleMobileMenu();" class="text-left text-white font-semibold py-1 hover:text-phoenix-500">Home</button>
-            <button onclick="navigate('about'); toggleMobileMenu();" class="text-left text-gray-300 font-semibold py-1 hover:text-phoenix-500">About Us</button>
+            <button onclick="navigate('home'); toggleMobileMenu();" class="text-left text-white font-semibold py-1 hover:text-phoenix-500">Αρχική</button>
+            <button onclick="navigate('about'); toggleMobileMenu();" class="text-left text-gray-300 font-semibold py-1 hover:text-phoenix-500">Σχετικά</button>
             <button onclick="navigate('streamers'); toggleMobileMenu();" class="text-left text-gray-300 font-semibold py-1 hover:text-phoenix-500">Creators</button>
-            <button onclick="navigate('partners'); toggleMobileMenu();" class="text-left text-phoenix-500 font-semibold py-1 hover:text-phoenix-red">Partners ★</button>
-            <button onclick="navigate('discord'); toggleMobileMenu();" class="text-left text-gray-300 font-semibold py-1 hover:text-phoenix-500">Community</button>
-            <button onclick="navigate('join'); toggleMobileMenu();" class="text-left text-phoenix-red font-semibold py-1">Join PHX ↗</button>
+            <button onclick="navigate('partners'); toggleMobileMenu();" class="text-left text-phoenix-500 font-semibold py-1 hover:text-phoenix-red">Συνεργάτες ★</button>
+            <button onclick="navigate('discord'); toggleMobileMenu();" class="text-left text-gray-300 font-semibold py-1 hover:text-phoenix-500">Κοινότητα</button>
+            <button onclick="navigate('join'); toggleMobileMenu();" class="text-left text-phoenix-red font-semibold py-1">Γίνε PHX ↗</button>
         </div>
     </nav>
 
     <!-- Main Content Area -->
     <main class="flex-grow max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
         
-        <!-- Home Section -->
+        <!-- Home Section (Default Greek) -->
         <section id="home" class="page-section grid grid-cols-1 lg:grid-cols-12 gap-12 items-center py-8">
             <div class="lg:col-span-7 text-left space-y-6">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-phoenix-red/10 border border-phoenix-red/30 text-phoenix-red text-xs font-bold tracking-widest uppercase">
-                    <span>■</span> ONE TEAM. LIMITLESS POTENTIAL.
+                    <span>■</span> ΜΙΑ ΟΜΑΔΑ. ΑΠΕΡΙΟΡΙΣΤΕΣ ΔΥΝΑΤΟΤΗΤΕΣ.
                 </div>
-                <h1 class="text-5xl sm:text-7xl font-black tracking-tight leading-none text-white">
+                <h1 class="text-5xl sm:text-7xl font-black tracking-tight leading-none text-white notranslate">
                     RISE WITH <br><span class="bg-clip-text text-transparent bg-gradient-to-r from-phoenix-500 to-phoenix-red">PHOENIX.</span>
                 </h1>
-                <p class="text-xl font-bold text-gray-200">More Than a Team. <br><span class="text-gray-400 font-normal text-lg">A New Era of Creators.</span></p>
-                <p class="text-sm text-gray-400 max-w-lg leading-relaxed">Where individual ambition becomes collective power. For the players, the creators, and the ones who dare to rise.</p>
+                <p class="text-xl font-bold text-gray-200">Περισσότερο από μια Ομάδα. <br><span class="text-gray-400 font-normal text-lg">Μια Νέα Εποχή Δημιουργών.</span></p>
+                <p class="text-sm text-gray-400 max-w-lg leading-relaxed">Εκεί όπου η ατομική φιλοδοξία γίνεται συλλογική δύναμη. Για τους παίκτες, τους δημιουργούς και όσους τολμούν να ξεχωρίσουν.</p>
                 
                 <div class="flex flex-wrap gap-4 pt-4">
                     <button onclick="navigate('streamers')" class="bg-phoenix-red hover:bg-phoenix-500 text-white px-8 py-3.5 rounded font-bold transition shadow-[0_0_20px_rgba(255,140,0,0.6)]">
-                        Meet the Team ↗
+                        Γνώρισε την Ομάδα ↗
                     </button>
                     <button onclick="navigate('partners')" class="glass hover:bg-phoenix-500/20 hover:border-phoenix-500 text-white px-8 py-3.5 rounded font-bold border border-gray-700 transition">
-                        Our Partners ↗
+                        Οι Συνεργάτες μας ↗
                     </button>
                 </div>
             </div>
@@ -179,8 +179,8 @@
         <section id="about" class="page-section hidden py-12">
             <div class="max-w-4xl mx-auto space-y-10">
                 <div class="text-center space-y-3">
-                    <span class="text-phoenix-500 text-xs font-bold tracking-widest uppercase bg-phoenix-500/10 px-3 py-1 rounded border border-phoenix-500/30">WHO WE ARE</span>
-                    <h2 class="text-4xl sm:text-5xl font-black text-white tracking-wide">ABOUT US</h2>
+                    <span class="text-phoenix-500 text-xs font-bold tracking-widest uppercase bg-phoenix-500/10 px-3 py-1 rounded border border-phoenix-500/30">ΠΟΙΟΙ ΕΙΜΑΣΤΕ</span>
+                    <h2 class="text-4xl sm:text-5xl font-black text-white tracking-wide">ΣΧΕΤΙΚΑ ΜΕ ΕΜΑΣ</h2>
                 </div>
 
                 <div class="glass p-8 sm:p-12 rounded-2xl border border-phoenix-500/20 space-y-8 text-gray-300 text-base leading-relaxed shadow-xl">
@@ -217,7 +217,7 @@
                     </div>
 
                     <div class="bg-black/40 p-6 rounded-xl border border-phoenix-red/30 text-center space-y-2">
-                        <p class="text-white font-bold text-lg">We don't just play. We connect, create and rise together.</p>
+                        <p class="text-white font-bold text-lg">Δεν παίζουμε απλώς. Συνδεόμαστε, δημιουργούμε και ανεβαίνουμε μαζί.</p>
                         <p class="text-xs tracking-widest text-phoenix-500 uppercase font-black notranslate">PHOENIX FORCE — RISE WITH PHOENIX.</p>
                     </div>
                 </div>
@@ -226,16 +226,16 @@
 
         <!-- Streamers / Roster Section -->
         <section id="streamers" class="page-section hidden py-10">
-            <h2 class="text-4xl font-black mb-2 tracking-wide text-center">OUR ROSTER</h2>
-            <p class="text-center text-gray-400 mb-12">Meet our elite creators and competitive roster</p>
+            <h2 class="text-4xl font-black mb-2 tracking-wide text-center">ΤΟ ΡΟΣΤΕΡ ΜΑΣ</h2>
+            <p class="text-center text-gray-400 mb-12">Γνώρισε τους creators και την ομάδα της Phoenix Force</p>
             <div id="streamer-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
         </section>
 
         <!-- Partners Section -->
         <section id="partners" class="page-section hidden py-12">
             <div class="text-center space-y-3 mb-12">
-                <span class="text-phoenix-500 text-xs font-bold tracking-widest uppercase bg-phoenix-500/10 px-3 py-1 rounded border border-phoenix-500/30">OFFICIAL COLLABORATIONS</span>
-                <h2 class="text-4xl sm:text-5xl font-black text-white tracking-wide">OUR PARTNERS</h2>
+                <span class="text-phoenix-500 text-xs font-bold tracking-widest uppercase bg-phoenix-500/10 px-3 py-1 rounded border border-phoenix-500/30">ΕΠΙΣΗΜΕΣ ΣΥΝΕΡΓΑΣΙΕΣ</span>
+                <h2 class="text-4xl sm:text-5xl font-black text-white tracking-wide">ΟΙ ΣΥΝΕΡΓΑΤΕΣ ΜΑΣ</h2>
                 <p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
                     Στηρίξτε τους επίσημους συνεργάτες της <span class="text-white font-semibold notranslate">Phoenix Force</span> και ανακαλύψτε μοναδικά geek & gaming προϊόντα.
                 </p>
@@ -267,7 +267,7 @@
                         <!-- Partner Info & CTA -->
                         <div class="md:col-span-7 text-center md:text-left space-y-4">
                             <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-r from-phoenix-500/20 to-phoenix-red/20 border border-phoenix-500/50 text-phoenix-500 text-xs font-black tracking-widest uppercase">
-                                <span>★</span> OFFICIAL MERCH & GEEK PARTNER
+                                <span>★</span> ΕΠΙΣΗΜΟΣ MERCH & GEEK ΣΥΝΕΡΓΑΤΗΣ
                             </div>
 
                             <h3 class="text-3xl sm:text-4xl font-black text-white tracking-tight notranslate">
@@ -286,7 +286,7 @@
 
                             <div class="pt-4 flex flex-col sm:flex-row items-center gap-4">
                                 <a href="https://www.geekaki.gr/en" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-gradient-to-r from-phoenix-500 to-phoenix-red hover:opacity-95 text-white px-8 py-4 rounded-xl font-black tracking-wide text-sm shadow-[0_0_25px_rgba(255,140,0,0.5)] transition transform hover:-translate-y-0.5">
-                                    <span>🛒 Visit Geekaki Store</span>
+                                    <span>🛒 Επίσκεψη στο Geekaki</span>
                                     <span>↗</span>
                                 </a>
                                 <span class="text-xs text-gray-400 font-mono notranslate">www.geekaki.gr/en</span>
@@ -302,7 +302,7 @@
                         <p class="text-gray-400 text-xs">Επικοινώνησε μαζί μας στο Discord ή στείλε μας μήνυμα για sponsorships & collaborations.</p>
                     </div>
                     <button onclick="navigate('discord')" class="shrink-0 border border-phoenix-500/60 text-phoenix-500 hover:bg-phoenix-500 hover:text-white px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition">
-                        Contact Team ↗
+                        Επικοινωνία ↗
                     </button>
                 </div>
             </div>
@@ -314,15 +314,15 @@
                 <div class="absolute -top-20 -left-20 w-60 h-60 bg-phoenix-500/15 rounded-full blur-3xl pointer-events-none"></div>
                 <div class="absolute -bottom-20 -right-20 w-60 h-60 bg-phoenix-red/15 rounded-full blur-3xl pointer-events-none"></div>
 
-                <h2 class="text-3xl sm:text-4xl font-black mb-3 text-white tracking-wide relative z-10">JOIN THE COMMUNITY</h2>
-                <p class="text-gray-300 mb-8 max-w-xl mx-auto relative z-10 text-sm sm:text-base">Connect with us across all platforms, join our official server, and catch our latest live streams and clips.</p>
+                <h2 class="text-3xl sm:text-4xl font-black mb-3 text-white tracking-wide relative z-10">ΜΠΕΣ ΣΤΗΝ ΚΟΙΝΟΤΗΤΑ</h2>
+                <p class="text-gray-300 mb-8 max-w-xl mx-auto relative z-10 text-sm sm:text-base">Συνδέσου μαζί μας σε όλες τις πλατφόρμες, μπες στον επίσημο Discord server μας και παρακολούθησε τα live streams και τα clips μας.</p>
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 relative z-10">
                     <a href="https://discord.gg/dVAChyHX4j" target="_blank" class="flex items-center justify-center gap-3 glass hover:bg-phoenix-500/20 hover:border-phoenix-500 text-white px-6 py-3.5 rounded font-bold border border-phoenix-500/40 transition transform hover:-translate-y-1">
                         <span>Discord Server ↗</span>
                     </a>
                     <a href="https://www.twitch.tv/phoenix_force_g" target="_blank" class="flex items-center justify-center gap-3 glass hover:bg-phoenix-500/20 hover:border-phoenix-500 text-white px-6 py-3.5 rounded font-bold border border-phoenix-500/40 transition transform hover:-translate-y-1">
-                        <span>Team Channel ↗</span>
+                        <span>Κανάλι Ομάδας ↗</span>
                     </a>
                     <a href="https://instagram.com" target="_blank" class="flex items-center justify-center gap-3 glass hover:bg-phoenix-500/20 hover:border-phoenix-500 text-white px-6 py-3.5 rounded font-bold border border-gray-700 transition transform hover:-translate-y-1">
                         <span>Instagram ↗</span>
@@ -336,13 +336,13 @@
 
         <!-- Apply / Join Section -->
         <section id="join" class="page-section hidden py-16 text-center">
-            <h2 class="text-4xl font-black mb-3 text-phoenix-500">BECOME A PHENIX</h2>
-            <p class="text-gray-400 mb-10 max-w-xl mx-auto">We are currently looking for dedicated streamers and competitive players to expand our roster.</p>
+            <h2 class="text-4xl font-black mb-3 text-phoenix-500">ΓΙΝΕ ΜΕΛΟΣ ΤΗΣ PHOENIX</h2>
+            <p class="text-gray-400 mb-10 max-w-xl mx-auto">Αναζητούμε αφοσιωμένους streamers και παίκτες για να ενισχύσουμε το ρόστερ μας.</p>
             <form id="applyForm" action="https://formspree.io/f/xgakwerk" class="max-w-md mx-auto glass p-8 rounded-2xl flex flex-col gap-4 text-left border border-phoenix-500/20" method="POST">
-                <input type="text" name="gamertag" placeholder="Your Name / Gamertag" required class="w-full p-3.5 rounded bg-black/40 border border-gray-700 focus:outline-none focus:border-phoenix-500 text-white">
+                <input type="text" name="gamertag" placeholder="Όνομα / Gamertag" required class="w-full p-3.5 rounded bg-black/40 border border-gray-700 focus:outline-none focus:border-phoenix-500 text-white">
                 <input type="url" name="link" placeholder="Twitch / YouTube Link" required class="w-full p-3.5 rounded bg-black/40 border border-gray-700 focus:outline-none focus:border-phoenix-500 text-white">
-                <textarea name="message" placeholder="Why should we recruit you?" rows="4" required class="w-full p-3.5 rounded bg-black/40 border border-gray-700 focus:outline-none focus:border-phoenix-500 text-white"></textarea>
-                <button type="submit" class="bg-phoenix-red hover:bg-phoenix-500 text-white font-bold py-3.5 rounded transition shadow-[0_0_15px_rgba(255,59,48,0.4)]">Submit Application</button>
+                <textarea name="message" placeholder="Πες μας λίγα λόγια για εσένα..." rows="4" required class="w-full p-3.5 rounded bg-black/40 border border-gray-700 focus:outline-none focus:border-phoenix-500 text-white"></textarea>
+                <button type="submit" class="bg-phoenix-red hover:bg-phoenix-500 text-white font-bold py-3.5 rounded transition shadow-[0_0_15px_rgba(255,59,48,0.4)]">Υποβολή Αίτησης</button>
             </form>
         </section>
     </main>
@@ -398,7 +398,7 @@
                     <h3 class="text-xl font-bold text-white mb-1 notranslate">${s.name}</h3>
                     <div><span class="${badgeClass} notranslate">${s.role}</span></div>
                     <p class="text-gray-400 text-xs mb-6 italic flex-grow">"${s.description}"</p>
-                    <a href="${s.link}" target="_blank" class="mt-auto border border-phoenix-500/60 text-phoenix-500 hover:bg-phoenix-500 hover:text-white px-6 py-2 rounded text-sm font-semibold transition w-full hover:shadow-[0_0_15px_rgba(255,140,0,0.6)]">Watch Live</a>
+                    <a href="${s.link}" target="_blank" class="mt-auto border border-phoenix-500/60 text-phoenix-500 hover:bg-phoenix-500 hover:text-white px-6 py-2 rounded text-sm font-semibold transition w-full hover:shadow-[0_0_15px_rgba(255,140,0,0.6)]">Δες Live</a>
                 </div>
             `;
         });
@@ -520,34 +520,34 @@
             document.documentElement.classList.toggle('dark');
         });
 
-        // Google Translate Logic
+        // Google Translate Logic (Default: Greek 'el' -> Toggle to English 'en')
         function googleTranslateElementInit() {
             new google.translate.TranslateElement({
-                pageLanguage: 'auto',
-                includedLanguages: 'en,el',
+                pageLanguage: 'el',
+                includedLanguages: 'el,en',
                 autoDisplay: false
             }, 'google_translate_element');
         }
 
         function getCurrentLang() {
             const match = document.cookie.match(/googtrans=\/[^\/]+\/([^;]+)/);
-            return match ? match[1] : 'en';
+            return match ? match[1] : 'el';
         }
 
         function updateLangButton() {
             const current = getCurrentLang();
             const label = document.getElementById('langLabel');
             if (label) {
-                label.textContent = (current === 'el') ? 'EN' : 'GR';
+                label.textContent = (current === 'en') ? 'GR' : 'EN';
             }
         }
 
         function toggleLanguage() {
             const current = getCurrentLang();
-            const targetLang = (current === 'el') ? 'en' : 'el';
+            const targetLang = (current === 'en') ? 'el' : 'en';
             
-            document.cookie = `googtrans=/auto/${targetLang}; path=/`;
-            document.cookie = `googtrans=/auto/${targetLang}; path=/; domain=${window.location.hostname}`;
+            document.cookie = `googtrans=/el/${targetLang}; path=/`;
+            document.cookie = `googtrans=/el/${targetLang}; path=/; domain=${window.location.hostname}`;
             
             const select = document.querySelector('.goog-te-combo');
             if (select) {
