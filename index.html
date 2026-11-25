@@ -59,6 +59,18 @@
             100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
         }
         .live-dot { animation: live-pulse 2s infinite; }
+
+        /* Hide Google Translate Top Banner & Tooltips */
+        .goog-te-banner-frame.skiptranslate,
+        .goog-te-gadget-simple,
+        #goog-gt-tt,
+        .goog-te-balloon-frame,
+        .skiptranslate {
+            display: none !important;
+        }
+        body {
+            top: 0px !important;
+        }
     </style>
 </head>
 <body class="dark min-h-screen flex flex-col selection:bg-phoenix-500 selection:text-white transition-colors duration-300">
@@ -68,7 +80,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20 items-center">
                 <!-- Logo & Brand -->
-                <div class="flex items-center space-x-3 cursor-pointer" onclick="navigate('home')">
+                <div class="flex items-center space-x-3 cursor-pointer notranslate" onclick="navigate('home')">
                     <img src="logos/PHX.png" alt="Logo" class="w-10 h-10 rounded-full border border-phoenix-500 object-cover" onerror="this.style.display='none'">
                     <div>
                         <span class="text-xl font-black tracking-wider text-white">PHOENIX</span>
@@ -88,17 +100,28 @@
                     <button onclick="navigate('discord')" class="nav-link text-gray-400 hover:text-phoenix-500 transition" data-page="discord">Community</button>
                 </div>
 
-                <!-- Right Action, Theme Toggle & Mobile Hamburger -->
-                <div class="flex items-center space-x-3">
+                <!-- Right Action, Theme Toggle, Language Switcher & Mobile Hamburger -->
+                <div class="flex items-center space-x-2 sm:space-x-3">
                     <button onclick="navigate('join')" class="hidden sm:inline-block bg-phoenix-red hover:bg-phoenix-500 text-white px-5 py-2.5 rounded text-sm font-bold tracking-wide transition shadow-[0_0_15px_rgba(255,140,0,0.6)]">
                         Join PHX ↗
                     </button>
                     
                     <!-- Theme Toggle Button -->
-                    <button id="themeToggle" class="p-2 rounded-full hover:bg-gray-800 dark:hover:bg-gray-800 transition text-gray-400 border border-gray-700/50">
+                    <button id="themeToggle" title="Toggle Theme" class="p-2 rounded-full hover:bg-gray-800 dark:hover:bg-gray-800 transition text-gray-400 border border-gray-700/50">
                         <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
                         <svg class="w-5 h-5 hidden dark:block text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
                     </button>
+
+                    <!-- Language Switcher Button (GR / EN) -->
+                    <button id="langToggle" onclick="toggleLanguage()" title="Translate Page (EN / GR)" class="notranslate px-2.5 py-2 rounded-full hover:bg-gray-800 transition text-gray-300 border border-gray-700/50 flex items-center gap-1.5 text-xs font-bold tracking-wider">
+                        <svg class="w-4 h-4 text-phoenix-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path>
+                        </svg>
+                        <span id="langLabel">GR</span>
+                    </button>
+
+                    <!-- Hidden Google Translate Container -->
+                    <div id="google_translate_element" class="hidden"></div>
 
                     <!-- Mobile Menu Button (Hamburger) -->
                     <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-gray-400 hover:bg-gray-800 transition">
@@ -162,13 +185,13 @@
 
                 <div class="glass p-8 sm:p-12 rounded-2xl border border-phoenix-500/20 space-y-8 text-gray-300 text-base leading-relaxed shadow-xl">
                     <p>
-                        Η <strong class="text-white">Phoenix Force (PHX)</strong> είναι μια δυναμική gaming κοινότητα που δημιουργήθηκε στις <strong class="text-phoenix-500">2 Απριλίου 2025</strong>, με κοινό πάθος για το gaming, το streaming και τη δημιουργία περιεχομένου.
+                        Η <strong class="text-white notranslate">Phoenix Force (PHX)</strong> είναι μια δυναμική gaming κοινότητα που δημιουργήθηκε στις <strong class="text-phoenix-500">2 Απριλίου 2025</strong>, με κοινό πάθος για το gaming, το streaming και τη δημιουργία περιεχομένου.
                     </p>
                     <p>
                         Η ομάδα μας αποτελείται από content creators και streamers που μοιράζονται την ίδια φιλοσοφία: το gaming είναι κάτι περισσότερο από ένα παιχνίδι. Είναι ένας τρόπος να εκφραζόμαστε, να συνεργαζόμαστε, να δημιουργούμε εμπειρίες και να ενώνουμε ανθρώπους.
                     </p>
                     <p>
-                        Στην Phoenix Force πιστεύουμε ότι κάθε gamer έχει τη δική του θέση, ανεξάρτητα από το παιχνίδι που επιλέγει ή το επίπεδο στο οποίο βρίσκεται.
+                        Στην <span class="notranslate">Phoenix Force</span> πιστεύουμε ότι κάθε gamer έχει τη δική του θέση, ανεξάρτητα από το παιχνίδι που επιλέγει ή το επίπεδο στο οποίο βρίσκεται.
                     </p>
 
                     <div class="border-t border-gray-800 pt-6 space-y-4">
@@ -185,7 +208,7 @@
                     <div class="border-t border-gray-800 pt-6 space-y-4">
                         <h3 class="text-2xl font-black text-white">Το Όραμά μας</h3>
                         <p>
-                            Στόχος της Phoenix Force είναι να εξελιχθεί σε μια ολοένα μεγαλύτερη και πιο ενεργή gaming κοινότητα, προσφέροντας ευκαιρίες σε νέους και υπάρχοντες content creators να αναπτυχθούν, να συνεργαστούν και να μοιραστούν το πάθος τους.
+                            Στόχος της <span class="notranslate">Phoenix Force</span> είναι να εξελιχθεί σε μια ολοένα μεγαλύτερη και πιο ενεργή gaming κοινότητα, προσφέροντας ευκαιρίες σε νέους και υπάρχοντες content creators να αναπτυχθούν, να συνεργαστούν και να μοιραστούν το πάθος τους.
                         </p>
                         <p>Για εμάς, η πραγματική δύναμη βρίσκεται στους ανθρώπους που αποτελούν την κοινότητά μας.</p>
                         <p class="italic text-phoenix-500 font-semibold">
@@ -195,7 +218,7 @@
 
                     <div class="bg-black/40 p-6 rounded-xl border border-phoenix-red/30 text-center space-y-2">
                         <p class="text-white font-bold text-lg">We don't just play. We connect, create and rise together.</p>
-                        <p class="text-xs tracking-widest text-phoenix-500 uppercase font-black">PHOENIX FORCE — RISE WITH PHOENIX.</p>
+                        <p class="text-xs tracking-widest text-phoenix-500 uppercase font-black notranslate">PHOENIX FORCE — RISE WITH PHOENIX.</p>
                     </div>
                 </div>
             </div>
@@ -214,7 +237,7 @@
                 <span class="text-phoenix-500 text-xs font-bold tracking-widest uppercase bg-phoenix-500/10 px-3 py-1 rounded border border-phoenix-500/30">OFFICIAL COLLABORATIONS</span>
                 <h2 class="text-4xl sm:text-5xl font-black text-white tracking-wide">OUR PARTNERS</h2>
                 <p class="text-gray-400 max-w-xl mx-auto text-sm sm:text-base">
-                    Στηρίξτε τους επίσημους συνεργάτες της <span class="text-white font-semibold">Phoenix Force</span> και ανακαλύψτε μοναδικά geek & gaming προϊόντα.
+                    Στηρίξτε τους επίσημους συνεργάτες της <span class="text-white font-semibold notranslate">Phoenix Force</span> και ανακαλύψτε μοναδικά geek & gaming προϊόντα.
                 </p>
             </div>
 
@@ -231,7 +254,7 @@
                             <a href="https://www.geekaki.gr/en" target="_blank" rel="noopener noreferrer" class="w-full max-w-[260px] aspect-square rounded-2xl bg-black/60 border-2 border-phoenix-500/40 group-hover:border-phoenix-500 p-6 flex flex-col items-center justify-center shadow-2xl transform group-hover:scale-105 transition duration-300 relative overflow-hidden">
                                 <img src="logos/Geekaki.png" alt="Geekaki Logo" class="w-44 h-44 object-contain" onerror="this.style.display='none'; document.getElementById('geekakiFallback').classList.remove('hidden');">
                                 <!-- Crisp Fallback if logos/Geekaki.png is not uploaded yet -->
-                                <div id="geekakiFallback" class="hidden flex flex-col items-center text-center">
+                                <div id="geekakiFallback" class="hidden flex flex-col items-center text-center notranslate">
                                     <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-phoenix-500 to-phoenix-red flex items-center justify-center text-4xl font-black text-white shadow-lg mb-3">
                                         G
                                     </div>
@@ -247,7 +270,7 @@
                                 <span>★</span> OFFICIAL MERCH & GEEK PARTNER
                             </div>
 
-                            <h3 class="text-3xl sm:text-4xl font-black text-white tracking-tight">
+                            <h3 class="text-3xl sm:text-4xl font-black text-white tracking-tight notranslate">
                                 GEEKAKI<span class="text-phoenix-500">.GR</span>
                             </h3>
 
@@ -266,7 +289,7 @@
                                     <span>🛒 Visit Geekaki Store</span>
                                     <span>↗</span>
                                 </a>
-                                <span class="text-xs text-gray-400 font-mono">www.geekaki.gr/en</span>
+                                <span class="text-xs text-gray-400 font-mono notranslate">www.geekaki.gr/en</span>
                             </div>
                         </div>
                     </div>
@@ -275,7 +298,7 @@
                 <!-- Become a Partner Callout -->
                 <div class="mt-10 glass p-6 rounded-2xl border border-gray-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
                     <div>
-                        <h4 class="text-white font-bold text-base">Θέλεις να συνεργαστείς με την Phoenix Force;</h4>
+                        <h4 class="text-white font-bold text-base">Θέλεις να συνεργαστείς με την <span class="notranslate">Phoenix Force</span>;</h4>
                         <p class="text-gray-400 text-xs">Επικοινώνησε μαζί μας στο Discord ή στείλε μας μήνυμα για sponsorships & collaborations.</p>
                     </div>
                     <button onclick="navigate('discord')" class="shrink-0 border border-phoenix-500/60 text-phoenix-500 hover:bg-phoenix-500 hover:text-white px-5 py-2.5 rounded-lg text-xs font-bold uppercase tracking-wider transition">
@@ -326,7 +349,7 @@
 
     <!-- Footer -->
     <footer class="glass text-center py-8 mt-auto border-t border-gray-800 text-gray-500 text-xs tracking-widest uppercase">
-        <p>© 2026 PHOENIX FORCE / CREATOR COLLECTIVE. ALL RIGHTS RESERVED.</p>
+        <p>© 2026 <span class="notranslate">PHOENIX FORCE</span> / CREATOR COLLECTIVE. ALL RIGHTS RESERVED.</p>
     </footer>
 
     <!-- Load Config First -->
@@ -365,15 +388,15 @@
 
             grid.innerHTML += `
                 <div class="glass p-6 rounded-2xl flex flex-col items-center text-center transform hover:-translate-y-2 transition duration-300 relative group" data-streamer="${twitchUsername}">
-                    <div class="live-badge absolute top-4 left-4 flex items-center gap-1.5 bg-black/50 px-2.5 py-0.5 rounded border border-gray-700/50 transition-colors duration-300">
+                    <div class="live-badge notranslate absolute top-4 left-4 flex items-center gap-1.5 bg-black/50 px-2.5 py-0.5 rounded border border-gray-700/50 transition-colors duration-300">
                         <span class="w-1.5 h-1.5 rounded-full bg-gray-500 live-dot-indicator"></span>
                         <span class="text-[9px] font-bold uppercase tracking-wider text-gray-400 live-text">Offline</span>
                     </div>
                     <div class="mt-2 mb-4">
                         <img src="${s.logo}" alt="${s.name}" onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=${s.name}&background=FF8C00&color=fff&size=120';" class="w-24 h-24 rounded-full border-2 border-phoenix-500 object-cover ${s.logoPosition || 'object-center'} bg-gray-900 shadow-lg group-hover:border-phoenix-red transition">
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-1">${s.name}</h3>
-                    <div><span class="${badgeClass}">${s.role}</span></div>
+                    <h3 class="text-xl font-bold text-white mb-1 notranslate">${s.name}</h3>
+                    <div><span class="${badgeClass} notranslate">${s.role}</span></div>
                     <p class="text-gray-400 text-xs mb-6 italic flex-grow">"${s.description}"</p>
                     <a href="${s.link}" target="_blank" class="mt-auto border border-phoenix-500/60 text-phoenix-500 hover:bg-phoenix-500 hover:text-white px-6 py-2 rounded text-sm font-semibold transition w-full hover:shadow-[0_0_15px_rgba(255,140,0,0.6)]">Watch Live</a>
                 </div>
@@ -496,6 +519,48 @@
             document.body.classList.toggle('dark');
             document.documentElement.classList.toggle('dark');
         });
+
+        // Google Translate Logic
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'auto',
+                includedLanguages: 'en,el',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        function getCurrentLang() {
+            const match = document.cookie.match(/googtrans=\/[^\/]+\/([^;]+)/);
+            return match ? match[1] : 'en';
+        }
+
+        function updateLangButton() {
+            const current = getCurrentLang();
+            const label = document.getElementById('langLabel');
+            if (label) {
+                label.textContent = (current === 'el') ? 'EN' : 'GR';
+            }
+        }
+
+        function toggleLanguage() {
+            const current = getCurrentLang();
+            const targetLang = (current === 'el') ? 'en' : 'el';
+            
+            document.cookie = `googtrans=/auto/${targetLang}; path=/`;
+            document.cookie = `googtrans=/auto/${targetLang}; path=/; domain=${window.location.hostname}`;
+            
+            const select = document.querySelector('.goog-te-combo');
+            if (select) {
+                select.value = targetLang;
+                select.dispatchEvent(new Event('change'));
+                updateLangButton();
+            } else {
+                window.location.reload();
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', updateLangButton);
     </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </body>
 </html>
